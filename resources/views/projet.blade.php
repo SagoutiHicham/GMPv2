@@ -4,7 +4,7 @@
 
 
 <div class="container  m-3">
-    <h1 class="text-center">Ajouter un projet tutoré</h1>
+    <h1 class="text-center">Ajouter un projet tutorés</h1>
 
     @if(auth()->check() && auth()->user()->fk_role_id === 6)
     <form action="{{ route('projet.store') }}" method="POST" class="max-w-md mx-auto">
