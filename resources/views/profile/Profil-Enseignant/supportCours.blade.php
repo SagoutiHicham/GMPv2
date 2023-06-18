@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Support de cours</title>
 </head>
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -30,50 +30,51 @@
 
     <section id="section">
 
-    @include('layouts.sidebarProf')
+     @include('layouts.sidebarProf')
 
 
-        <div class="Ajoutnotes mx-auto my-7">
-    <h2>Ajouter des notes</h2>
 
-    <form action="traitement_formulaire.php" method="POST">
+    
+     <div class="depot mx-auto my-7">
+      <h2>Dépôt du support de cours</h2>
+    <br>
 
-    <div>
-   <ul class="flex flex-row justify-center">
-    <li> <input type="radio" name="classe" id="classe1" value="classe1" required>
-  <label for="classe1">LP MIE</label></li>
-  <br>
-  <li> <input type="radio" name="classe" id="classe2" value="classe2">
-  <label for="classe2">LP MIEF</label></li>
-  <br>
-  <li> <input type="radio" name="classe" id="classe3" value="classe3">
-  <label for="classe3">LP MRI</label></li>
-</ul>
+  <form action="traitement.php" method="POST" enctype="multipart/form-data">
+  <div>
+    <label for="pdf">Classe :</label>
+  <ul class="flex flex-row justify-center">
+        <li>
+          <input type="radio" name="classe" id="classe1" value="classe1" required>
+          <label for="classe1">LP MIE</label>
+        </li>
+        <li>
+          <input type="radio" name="classe" id="classe2" value="classe2">
+          <label for="classe2">LP MIEF</label>
+        </li>
+        <li>
+          <input type="radio" name="classe" id="classe3" value="classe3">
+          <label for="classe3">LP MRI</label>
+        </li>
+        <li>
+          <input type="radio" name="classe" id="classe4" value="classe4">
+          <label for="classe4">BUT GMP</label>
+        </li>
+      </ul>
   </div>
 
-  <br><br>
-  
-  <input type="text" name="nom" id="nom" placeholder="Nom*" required>
-  <br><br>
+    <br><br>
 
-  <input type="text" name="prenom" id="prenom" placeholder="Prénom*" required>
-  <br><br>
+    <label for="pdf">Fichier PDF :</label>
+    <input type="file" id="pdf" name="pdf" accept="application/pdf">
 
-  <input type="text" name="matiere" id="matiere" placeholder="Matière*" required>
-  <br><br>
-
-  <input type="number" name="note" id="note" placeholder="Note*" min="0" max="20" step="0.5" required>
-  <br><br>
-
-  <input type="number" name="coefficient" id="coefficient" placeholder="Coefficient*" min="1" step="1" required>
-  <br><br>
-
-  <textarea name="appreciation" id="appreciation" placeholder="Appréciation*" rows="4" cols="30" required></textarea>
-  <br><br>
-
-  <input type="submit" value="Ajouter la note">
-</form>
+    <br><br>
+    
+    <textarea name="commentaire" id="commentaire" placeholder="Commentaire*" rows="4" cols="30" required></textarea>
+    <br><br>
+    <input type="submit" value="Déposer">
+  </form>
 </div>
+       
 
     </section>
 
@@ -86,39 +87,47 @@
 </html>
 <style>
 /*FORM*/ 
-    .Ajoutnotes {
+ul.flex {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul.flex li {
+    margin: 1px; 
+  }
+    .depot {
     background-color: #f2f2f2;
     padding: 20px;
     border-radius: 5px;
-    width: 400px;
-    text-align: center;
+    width: 450px;
+    text-align: left;
     box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.5);
   }
 
-  .Ajoutnotes h2 {
+  .depot h2 {
     color: #333333;
     font-size: 24px;
     margin-bottom: 20px;
   }
 
-  .Ajoutnotes label {
+  .depot label {
     display: inline-block;
     width: 100px;
     text-align: left;
     margin-bottom: 10px;
   }
 
-  .Ajoutnotes input[type="text"],
-  .Ajoutnotes input[type="number"],
-  .Ajoutnotes textarea {
-    width: 300px;
+  .depot input[type="text"],
+  .depot input[type="number"],
+  .depot textarea {
+    width: 400px;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 10px;
   }
 
-  .Ajoutnotes input[type="submit"] {
+  .depot input[type="submit"] {
     background-color: #606C38;
     color: white;
     padding: 10px 20px;
@@ -127,7 +136,7 @@
     cursor: pointer;
   }
 
-  .Ajoutnotes input[type="submit"]:hover {
+  .depot input[type="submit"]:hover {
     background-color: #BC6C25;
   }
 /*FIN FORM*/ 
@@ -162,11 +171,10 @@
 
     }
 
- 
     .lienFormation h2 {
         color: white;
         position: relative;
-        margin: auto 114px;
+        left: 7pc;
     }
 
     .listMenu {

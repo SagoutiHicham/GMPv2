@@ -52,7 +52,7 @@
                             <a href="{{url('alternance')}}" class="text-[#BC6C25] dark:text-white hover:underline">OFFRE D'ALTERNANCE</a>
                         </li>
                         <li>
-                            <a href="#" class="text-[#BC6C25] dark:text-white hover:underline">OFFRE PROJET TUTORÉ </a>
+                            <a href="{{url('projet')}}" class="text-[#BC6C25] dark:text-white hover:underline">OFFRE PROJET TUTORÉ </a>
                         </li>
                         @if(auth()->check() && auth()->user()->fk_role_id === 6)
                         <li>

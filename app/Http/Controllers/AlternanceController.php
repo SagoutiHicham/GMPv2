@@ -8,12 +8,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class AlternanceController extends Controller
+
+
 {
+
     public function store(Request $request)
     {   
         $user_id = auth()->id();
 
         $entreprise = Entreprise::where('fk_entreprise_user_id',$user_id)->first();
+
+        
 
         if (auth()->check()){
             $request->validate([

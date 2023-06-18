@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AlternanceController;
+use App\Http\Controllers\SupportCours;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EntrepriseController;
+use App\Http\Controllers\projetController;
 use Illuminate\Routing\RouteRegistrar;
 
 /*
@@ -53,6 +55,17 @@ Route::post('/Ajoutnotes', [NoteController::class, 'create'])->name('Ajoutnotes.
 
 Route::get('/Ajoutnotes/showClasse{idClasse}', [NoteController::class, 'show'])->name('Ajoutnotes.show');
 
+// ajouter le SupportCours 
+
+Route::get('/supportCours', [NoteController::class, 'index'])->name('supportCours.index');
+
+
+Route::post('/Ajoutnotes', [NoteController::class, 'create'])->name('supportCours.add');
+
+Route::get('/Ajoutnotes/showClasse{idClasse}', [NoteController::class, 'show'])->name('supportCours.show');
+
+/*Fin de la partie ajouter Cours */
+
 Route::get('/edtprofs', function () {
     return view('profile.Profil-Enseignant.edtprofs');
 });
@@ -79,6 +92,9 @@ Route::get('/lp-mie', function () {
 });
 
 Route::post('/alternance', [AlternanceController::class, 'store'])->name('alternance.store');
+
+Route::post('/projet', [projetController::class, 'store'])->name('projet.store');
+
 
 
 Route::middleware('profil.entreprise')->group(function (){
