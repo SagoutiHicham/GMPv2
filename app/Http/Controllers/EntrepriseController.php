@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Auth;
 class EntrepriseController extends Controller
 {
     public function store(Request $request)
-    {   
+    {   $id = auth()->id();
        
-        $records = Entreprise::whereNotNull('fk_entreprise_user_id')->get();
+        $records = Entreprise::where('fk_entreprise_user_id',$id)->get();
     
         if ($records->isEmpty()) {
             // La colonne 'fk_entreprise_user_id' est vide pour tous les enregistrements
